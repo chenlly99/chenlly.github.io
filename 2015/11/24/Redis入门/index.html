@@ -1,0 +1,484 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?2044cadae2f678c325b57bddd4cbe93f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+  
+  <title>Redis | chenlly99&#39;s blog</title>
+  <meta name="author" content="chenlly">
+  
+  <meta name="description" content="Keep on going never give up">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Redis"/>
+  <meta property="og:site_name" content="chenlly99&#39;s blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="chenlly99&#39;s blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+  
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?2044cadae2f678c325b57bddd4cbe93f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+</head>
+
+
+<body>
+  <header id="header" class="inner">
+<div class="alignleft">
+  <h1><a href="/">chenlly99&#39;s blog</a></h1>
+  <h2><a href="/">Keep on going never give up</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+      <li><a href="/about">关于</a></li>
+    
+	<li> <a href="/atom.xml">RSS</a> </li>
+<li> <a title="把这个链接拖到你的Chrome收藏夹工具栏中" href='javascript:(function() {
+	function c() {
+		var e = document.createElement("link");
+		e.setAttribute("type", "text/css");
+		e.setAttribute("rel", "stylesheet");
+		e.setAttribute("href", f);
+		e.setAttribute("class", l);
+		document.body.appendChild(e)
+	}
+ 
+	function h() {
+		var e = document.getElementsByClassName(l);
+		for (var t = 0; t < e.length; t++) {
+			document.body.removeChild(e[t])
+		}
+	}
+ 
+	function p() {
+		var e = document.createElement("div");
+		e.setAttribute("class", a);
+		document.body.appendChild(e);
+		setTimeout(function() {
+			document.body.removeChild(e)
+		}, 100)
+	}
+ 
+	function d(e) {
+		return {
+			height : e.offsetHeight,
+			width : e.offsetWidth
+		}
+	}
+ 
+	function v(i) {
+		var s = d(i);
+		return s.height > e && s.height < n && s.width > t && s.width < r
+	}
+ 
+	function m(e) {
+		var t = e;
+		var n = 0;
+		while (!!t) {
+			n += t.offsetTop;
+			t = t.offsetParent
+		}
+		return n
+	}
+ 
+	function g() {
+		var e = document.documentElement;
+		if (!!window.innerWidth) {
+			return window.innerHeight
+		} else if (e && !isNaN(e.clientHeight)) {
+			return e.clientHeight
+		}
+		return 0
+	}
+ 
+	function y() {
+		if (window.pageYOffset) {
+			return window.pageYOffset
+		}
+		return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+	}
+ 
+	function E(e) {
+		var t = m(e);
+		return t >= w && t <= b + w
+	}
+ 
+	function S() {
+		var e = document.createElement("audio");
+		e.setAttribute("class", l);
+		e.src = i;
+		e.loop = false;
+		e.addEventListener("canplay", function() {
+			setTimeout(function() {
+				x(k)
+			}, 500);
+			setTimeout(function() {
+				N();
+				p();
+				for (var e = 0; e < O.length; e++) {
+					T(O[e])
+				}
+			}, 15500)
+		}, true);
+		e.addEventListener("ended", function() {
+			N();
+			h()
+		}, true);
+		e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+		document.body.appendChild(e);
+		e.play()
+	}
+ 
+	function x(e) {
+		e.className += " " + s + " " + o
+	}
+ 
+	function T(e) {
+		e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+	}
+ 
+	function N() {
+		var e = document.getElementsByClassName(s);
+		var t = new RegExp("\\b" + s + "\\b");
+		for (var n = 0; n < e.length; ) {
+			e[n].className = e[n].className.replace(t, "")
+		}
+	}
+ 
+	var e = 30;
+	var t = 30;
+	var n = 350;
+	var r = 350;
+	var i = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";
+	var s = "mw-harlem_shake_me";
+	var o = "im_first";
+	var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+	var a = "mw-strobe_light";
+	var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+	var l = "mw_added_css";
+	var b = g();
+	var w = y();
+	var C = document.getElementsByTagName("*");
+	var k = null;
+	for (var L = 0; L < C.length; L++) {
+		var A = C[L];
+		if (v(A)) {
+			if (E(A)) {
+				k = A;
+				break
+			}
+		}
+	}
+	if (A === null) {
+		console.warn("Could not find a node of the right size. Please try a different page.");
+		return
+	}
+	c();
+	S();
+	var O = [];
+	for (var L = 0; L < C.length; L++) {
+		var A = C[L];
+		if (v(A)) {
+			O.push(A)
+		}
+	}
+})()    '>High一下</a> </li>
+
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-11-24T07:56:35.000Z"><a href="/2015/11/24/Redis入门/">Nov 24 2015</a></time>
+      
+      
+  
+    <h1 class="title">Redis</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="Nosql数据库应用场景">Nosql数据库应用场景</h2><ul>
+<li>少量数据存储，高速读写访问。此类产品通过数据全部in-momery 的方式来保证高速访问，同时提供数据落地的功能，实际这正是Redis最主要的适用场景。</li>
+<li>海量数据存储，分布式系统支持，数据一致性保证，方便的集群节点添加/删除。</li>
+</ul>
+<h2 id="mysql、redis、mogodb_的区别">mysql、redis、mogodb 的区别</h2><p>mongodb是文档型的非关系型数据库，其优势在于查询功能比较强大，能存储海量数据。<br>MongoDb相比于传统的SQL关系型数据库，最大的不同在于它们的模式设计（SchemaDesign）上的差别，正是由于这一层次的差别衍生出其它各方面的不同。<br>如果将关系数据库简单理解为由数据库、表（table）、记录（record）三个层次概念组成，而在构建一个关系型数据库的时候，工作重点和难点都在数据库表的划分与组织上。一般而言，为了平衡提高存取效率与减少数据冗余之间的矛盾，设计的数据库表都会尽量满足所谓的第三范式。相应的，可以认为MongoDb由数据库、集合（collection）、文档对象（Document-oriented、BSON）三个层次组成。MongoDb里的collection可以理解为关系型数据库里的表，虽然二者并不完全对等。当然，不要期望collection会满足所谓的第三范式，因为它们根本就不在同一个概念讨论范围之内。类似于表由多条记录组成，集合也包含多个文档对象，虽然说一般情况下，同一个集合内的文档对象具有相同的格式定义，但这并不是必须的，即MongoDb的数据模式是自由的（schema-free、模式自由、无模式），collection中可以包含具有不同schema的文档记录，支持嵌入子文档。<br>redis 官网测试读写能到10万/s左右。<br>应用场景</p>
+<ul>
+<li>业务系统的关联关系用mysql组织</li>
+<li>缓存数据用memcached、redis存取</li>
+<li>大文本数据放进mongodb存取中</li>
+</ul>
+<a id="more"></a>
+<h2 id="Redis适用场景">Redis适用场景</h2><p>Redis最适合所有数据in-momory的场景，虽然Redis也提供持久化功能，但实际更多的是一个disk-backed的功能。通过tcp直接存取，优势是速度快，并发高，缺点是数据类型有限，查询功能不强，一般用作缓存</p>
+<h2 id="Redis特点">Redis特点</h2><ul>
+<li>Redis不仅仅支持简单的k/v类型的数据，同时还提供list，set，zset，hash等数据结构的存储。</li>
+<li>Redis支持数据的备份，即master-slave模式的数据备份。</li>
+<li>Redis支持数据的持久化，可以将内存中的数据保持在磁盘中，重启的时候可以再次加载进行使用。</li>
+</ul>
+<h2 id="Redis设计原理">Redis设计原理</h2><p>在Redis中，并不是所有的数据都一直存储在内存中的。Redis只会缓存所有的key的信息，如果Redis发现内存的使用量超过了某一个阀值，将触发swap的操作。Redis根据“swappability = age*log(size_in_memory)”计算出哪些key对应的value需要swap到磁盘。然后再将这些key对应的value持久化到磁盘中，同时在内存中清除。这种特性使得Redis可以 保持超过其机器本身内存大小的数据。当然，机器本身的内存必须要能够保持所有的key，毕竟这些数据是不会进行swap操作的。同时由于Redis将内存 中的数据swap到磁盘中的时候，提供服务的主线程和进行swap操作的子线程会共享这部分内存，所以如果更新需要swap的数据，Redis将阻塞这个 操作，直到子线程完成swap操作后才可以进行修改。当从Redis中读取数据的时候，如果读取的key对应的value不在内存中，那么Redis就需要从swap文件中加载相应数据，然后再返回给请求方。 这里就存在一个I/O线程池的问题。在默认的情况下，Redis会出现阻塞，即完成所有的swap文件加载后才会相应。这种策略在客户端的数量较小，进行 批量操作的时候比较合适。但是如果将Redis应用在一个大型的网站应用程序中，这显然是无法满足大并发的情况的。所以Redis运行我们设置I/O线程 池的大小，对需要从swap文件中加载相应数据的读取请求进行并发操作，减少阻塞的时间。<br>如果希望在海量数据的环境中使用好Redis，我相信理解Redis的内存设计和阻塞的情况是不可缺少的。</p>
+<h2 id="Redis目前提供四种数据类型：string,list,set及zset(sorted_set)和hash。">Redis目前提供四种数据类型：string,list,set及zset(sorted set)和hash。</h2><ul>
+<li>string是最简单的类型，。</li>
+<li>list是一个链表结构，主要功能是push、pop、获取一个范围的所有值等等。操作中key理解为链表的名字。</li>
+<li>set是集合，和我们数学中的集合概念相似，对集合的操作有添加删除元素，有对多个集合求交并差等操作。操作中key理解为集合的名字。</li>
+<li>zset是set的一个升级版本，他在set的基础上增加了一个顺序属性，这一属性在添加修改元素的时候可以指定，每次指定后，zset会自动重新按新的值调整顺序。可以理解了有两列的mysql表，一列存value，一列存顺序。操作中key理解为zset的名字。</li>
+<li>hash数据类型允许用户用Redis存储对象类型,Hash数据类型的一个重要优点是,当你存储的数据对象只有很少几个key值时,数据存储的内存消耗会很小.更多关于Hash数据类型</li>
+</ul>
+<h2 id="Redis处理的个人经验">Redis处理的个人经验</h2><ul>
+<li>批量处理：<br>redis在处理数据时，最好是要进行批量处理，将一次处理1条数据改为多条，性能可以成倍提高。测试的目的就是要弄清楚批量和非批量处理之间的差别，从测试结果来看，性能差异非常大，所以在开发过程中尽量使用批量处理，即每次发送多条数据，以抵消网络速度影响。</li>
+<li>网络：<br>redis在处理时受网络影响非常大，所以，部署最好能在本机部署，如果本机部署redis，能获取10到20倍的性能。集群情况下，网络硬件、网速要求一定要高。</li>
+<li>内存：<br>由于我在测试环境遇到过redis读取超时，排查原因定位在Linux交互分区上。如果没有足够内存，linux可能将reids一部分数据放到交换分区，导致读取速度非常慢导致超时。所以一定要预留足够多的内存供redis使用。</li>
+</ul>
+<h2 id="Redis数据类型">Redis数据类型</h2><pre><code><span class="comment"><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String key = &#34;&#34;;&#10;///////////&#23383;&#31526;&#20018;&#25805;&#20316;//////////////&#9;&#10;//&#26597;&#10;String value = jedis.get(key);&#10;//&#22686;&#10;jedis.set(key, value);&#10;//&#21024;&#10;jedis.del(key);&#10;//&#25209;&#37327;&#21024;&#10;String[] keys = new String[2];&#10;jedis.del(keys);&#10;//&#39564;&#35777;&#26159;&#21542;&#23384;&#22312;&#10;jedis.exists(key);&#10;&#10;///////////list&#25805;&#20316;//////////////&#10;//&#21015;&#34920;&#22836;&#37096;&#28155;&#21152;&#10;jedis.lpush(&#34;key&#34;, &#34;A&#34;);&#10;jedis.lpush(&#34;key&#34;, &#34;B&#34;);&#10;jedis.lpush(&#34;key&#34;, &#34;C&#34;);&#10;//&#21015;&#34920;&#22836;&#37096;&#25209;&#37327;&#28155;&#21152;&#10;keys = new String[]&#123;&#34;A&#34;,&#34;B&#34;&#125;;&#10;jedis.lpush(&#34;key&#34;, keys);&#10;//&#36820;&#22238;&#21644;&#31227;&#38500;&#21015;&#34920;&#31532;&#19968;&#20010;&#20803;&#32032;&#10;value = jedis.lpop(&#34;key&#34;);&#10;//&#21015;&#34920;&#23614;&#37096;&#28155;&#21152;&#10;jedis.rpush(&#34;key&#34;, &#34;A&#34;);&#10;jedis.rpush(&#34;key&#34;, &#34;B&#34;);&#10;jedis.rpush(&#34;key&#34;, &#34;C&#34;);&#10;//&#21015;&#34920;&#23614;&#37096;&#25209;&#37327;&#28155;&#21152;&#10;keys = new String[]&#123;&#34;A&#34;,&#34;B&#34;&#125;;&#10;jedis.rpush(&#34;key&#34;, keys);&#10;//&#36820;&#22238;&#21644;&#31227;&#38500;&#21015;&#34920;&#26368;&#21518;&#19968;&#20010;&#20803;&#32032;&#10;value = jedis.rpop(&#34;key&#34;);&#10;//&#36820;&#22238;&#21015;&#34920;&#38271;&#24230;&#10;jedis.llen(&#34;key&#34;);&#10;&#10;///////////Hash&#25805;&#20316;//////////////&#10;String field = &#34;&#34;;&#10;//&#26597;&#10;String str = jedis.hget(key, field);&#10;//&#22686;&#10;jedis.hset(key, field, value);&#10;//&#21024;&#10;jedis.hdel(key, field);&#10;//&#21028;&#26029;&#26159;&#21542;&#23384;&#22312;&#10;jedis.hexists(key, field);&#10;//&#20803;&#32032;&#25968;&#37327;&#10;long len = jedis.hlen(key);&#10;//hash &#25152;&#26377;key&#10;Set&#60;String&#62; set = jedis.hkeys(key);&#10;//hash &#25152;&#26377;value&#10;List&#60;String&#62; list = jedis.hvals(key);&#10;//&#36820;&#22238;hash&#10;Map&#60;String,String&#62; map = jedis.hgetAll(key);</span><br></pre></td></tr></table></figure></span>
+</code></pre><h2 id="Redis_发布和订阅">Redis 发布和订阅</h2><p>发布订阅(pub/sub)是一种消息通信模式。订阅者可以通过subscribe和psubscribe命令向redis server订阅自己感兴趣的消息类型，redis将消息类型称为通道(channel)。当发布者通过publish命令向redis server发送特定类型的消息时。订阅该消息类型的全部client都会收到此消息。这里消息的传递是多对多的。一个client可以订阅多个 channel,也可以向多个channel发送消息。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//publisher&#10;String channel = &#34;&#34;; //&#39057;&#36947;&#10;String mess = &#34;&#34;;//&#28040;&#24687;&#10;jedis.publish(channel, mess);&#10;&#10;//subscribe&#10;SubscribeListener subscribeListener = new SubscribeListener();&#10;//&#21487;&#20197;&#35746;&#38405;&#22810;&#20010;&#39057;&#36947;&#65292;&#35746;&#38405;&#24471;&#21040;&#20449;&#24687;&#22312;SubscribeListener&#30340;onMessage(...)&#26041;&#27861;&#20013;&#36827;&#34892;&#22788;&#29702;&#10;subscribe(subscribeListener , channels)&#10;&#10;public class SubscribeListener extends  JedisPubSub&#123;&#10;     @Override&#10;     public void onMessage(String channel, String message) &#123;&#10;       //dosomething&#10;     &#125;&#10;&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="redis_事务、管道、分布式">redis 事务、管道、分布式</h2><h3 id="事务">事务</h3><p>redis的事务很简单，他主要目的是保障，一个client发起的事务中的命令可以连续的执行，而中间不会插入其他client的命令。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Transaction tx = jedis.multi();&#10;   for (int i = 0; i &#60; 100000; i++) &#123;&#10;       tx.set(&#34;t&#34; + i, &#34;t&#34; + i);&#10;   &#125;&#10;   List&#60;Object&#62; results = tx.exec();</span><br></pre></td></tr></table></figure></p>
+<h3 id="同步">同步</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for (int i = 0; i &#60; 100000; i++) &#123;&#10;      String result = jedis.set(&#34;n&#34; + i, &#34;n&#34; + i);&#10;  &#125;</span><br></pre></td></tr></table></figure>
+<p>每次set之后都可以返回结果，标记是否成功。管道(Pipelining)</p>
+<h3 id="异步">异步</h3><p>有时，我们需要采用异步方式，一次发送多个指令，不同步等待其返回结果。这样可以取得非常好的执行效率。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Pipeline pipeline = jedis.pipelined();&#10;   long start = System.currentTimeMillis();&#10;   for (int i = 0; i &#60; 100000; i++) &#123;&#10;       pipeline.set(&#34;p&#34; + i, &#34;p&#34; + i);&#10;   &#125;&#10;   List&#60;Object&#62; results = pipeline.syncAndReturnAll();</span><br></pre></td></tr></table></figure></p>
+<h3 id="分布式同步">分布式同步</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&#60;JedisShardInfo&#62; shards = Arrays.asList(&#10;           new JedisShardInfo(&#34;localhost&#34;,6379),&#10;           new JedisShardInfo(&#34;localhost&#34;,6380));&#10;&#10;   ShardedJedis sharding = new ShardedJedis(shards);&#10;&#10;   for (int i = 0; i &#60; 100000; i++) &#123;&#10;       String result = sharding.set(&#34;sn&#34; + i, &#34;n&#34; + i);&#10;&#10;   &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="分布式异步">分布式异步</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&#60;JedisShardInfo&#62; shards = Arrays.asList(&#10;          new JedisShardInfo(&#34;localhost&#34;,6379),&#10;          new JedisShardInfo(&#34;localhost&#34;,6380));&#10;&#10;  ShardedJedis sharding = new ShardedJedis(shards);&#10;&#10;  ShardedJedisPipeline pipeline = sharding.pipelined();&#10;  long start = System.currentTimeMillis();&#10;  for (int i = 0; i &#60; 100000; i++) &#123;&#10;      pipeline.set(&#34;sp&#34; + i, &#34;p&#34; + i);&#10;  &#125;&#10;&#10;  List&#60;Object&#62; results = pipeline.syncAndReturnAll();</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/技术/">技术</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/Nosql/">Nosql</a>, <a href="/tags/redis/">redis</a>
+  </div>
+
+<!-- Baidu Button BEGIN -->
+<div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
+<a class="bds_qzone"></a>
+<a class="bds_tsina"></a>
+<a class="bds_tqq"></a>
+<a class="bds_renren"></a>
+<a class="bds_t163"></a>
+<span class="bds_more"></span>
+<a class="shareCount"></a>
+</div>
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=3326447" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+ <nav id="pagination" >
+    
+    <a href="/2015/12/14/R语言入门/" class="alignleft prev" >上一页</a>
+    
+    
+    <a href="/2015/09/02/交通流理论/" class="alignright next" >下一页</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+<section id="comment">
+<!-- 多说评论框 start -->
+	<div class="ds-thread"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"chenlly99"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Hadoop/">Hadoop</a><small>5</small></li>
+  
+    <li><a href="/categories/年度总结/">年度总结</a><small>1</small></li>
+  
+    <li><a href="/categories/技术/">技术</a><small>5</small></li>
+  
+    <li><a href="/categories/智能交通/">智能交通</a><small>1</small></li>
+  
+    <li><a href="/categories/读书笔记/">读书笔记</a><small>1</small></li>
+  
+    <li><a href="/categories/随心随笔/">随心随笔</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/Hadoop/" style="font-size: 17.5px;">Hadoop</a> <a href="/tags/Nosql/" style="font-size: 10px;">Nosql</a> <a href="/tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="/tags/PyCharm/" style="font-size: 10px;">PyCharm</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/python/" style="font-size: 12.5px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/交通流/" style="font-size: 10px;">交通流</a> <a href="/tags/分布式/" style="font-size: 20px;">分布式</a> <a href="/tags/大数据/" style="font-size: 17.5px;">大数据</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/浮动车/" style="font-size: 10px;">浮动车</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a> <a href="/tags/高性能/" style="font-size: 10px;">高性能</a>
+  </div>
+</div>
+
+
+  <div class="widget tag">
+<h3 class="title">简介</h3>
+<ul class="entry">
+<li>本体：陈利玲</li>
+<li>网名：忧郁王子</li>
+<li>现状：帝都移动互联网</li>
+<li>想交友的朋友请<a href="http://chenlly99.github.io/">联系我</a>！</li>
+<li>QQ 号：2573146188</li>
+</ul>
+</div>
+
+
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://chenlly99.github.io/" title="忧郁王子的博客">Melancholy Prince</a></li>
+<li><a href="http://blog.csdn.net/cdl2008sky" title="忧郁王子的博客">忧郁王子的博客(csdn)</a></li>
+<li><a href="http://www.douban.com/people/chenlly99/" title="豆瓣">豆瓣</a></li>
+<li><a href="http://www.zhihu.com/people/chen-li-ling-40" title="知乎">知乎</a></li>
+<li><a href="https://github.com/chenlly99" title="GitHub">GitHub</a></li>
+</ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><section>
+Keep on going never give up!! <a href="/">@chenlly</a> 
+</section>
+<div class="clearfix"></div>
+</footer>
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
+
+
+<a href="https://github.com/chenlly99" target="_blank"><img style="position: absolute; top: 0; left: 0; border: 0;" src="/img/forkme_left_green_007200.png" alt="Fork me on GitHub"></a>

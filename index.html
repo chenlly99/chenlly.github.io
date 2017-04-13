@@ -241,27 +241,27 @@ var _hmt = _hmt || [];
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-06-09T07:49:20.000Z"><a href="/2017/06/09/Hadoop-SecondarySort/">Jun 9 2017</a></time>
+        <time datetime="2017-04-13T03:10:15.000Z"><a href="/2017/04/13/Python-排序/">Apr 13 2017</a></time>
       
       
   
-    <h1 class="title"><a href="/2017/06/09/Hadoop-SecondarySort/">Hadoop-SecondarySort</a></h1>
+    <h1 class="title"><a href="/2017/04/13/Python-排序/">Python 排序</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p>MapReduce框架对处理结果的输出会根据key值进行默认的排序，这个默认排序可以满足一部分需求。为了满足复杂的需求需要Hadoop二次排序Secondary Sort。</p>
-<h3 id="过程">过程</h3><p>在map阶段，使用job.setInputFormatClass定义的InputFormat将输入的数据集分割成小数据块splites，同时InputFormat提供一个RecordReder的实现。<br>他提供的RecordReder会将文本的一行的行号作为key，这一行的文本作为value。这就是自定义Map的输入是<LongWritable, Text>的原因。<br>然后调用自定义Map的map方法，将一个个<LongWritable, Text>对输入给Map的map方法。注意输出应该符合自定义Map中定义的输出<IntPair, IntWritable>。<br>最终是生成一个List<IntPair, IntWritable>。<br>在map阶段的最后，会先调用job.setPartitionerClass对这个List进行分区，每个分区映射到一个reducer。这样Reducer就可以拉取Mapper得到的结果。<br>每个分区内又调用job.setSortComparatorClass设置的key比较函数类排序。可以看到，这本身就是一个二次排序。<br>如果没有通过job.setSortComparatorClass设置key比较函数类，则使用key的实现的compareTo方法。</p>
-<p>在reduce阶段，reducer接收到所有映射到这个reducer的map输出后，也是会调用job.setSortComparatorClass设置的key比较函数类对所有数据对排序。<br>然后开始构造一个key对应的value迭代器。这时就要用到分组，使用job.setGroupingComparatorClass设置的分组函数类。<br>只要这个比较器比较的两个key相同，他们就属于同一个组，它们的value放在一个value迭代器，而这个迭代器的key使用属于同一个组的所有key的第一个key。<br>最后就是进入Reducer的reduce方法，reduce方法的输入是所有的（key和它的value迭代器）。</p>
-<p>Key必须实现WritableComparable接口<br>在MapReduce的过程中，需要对key进行排序，而key也需要在网络流中传输，因此需要实现WritableComparable，这是一个标志接口，实现了Writable, Comparable两个接口。<br>默认情况下，我们使用的是HashPartitioner<br>使用Hash的方式是所有的key的hashcode对reduce的数目取余数，因此虽然能够保证每个key相同的kv对会发送到同一个Reducer任务进行处理，<br>但是当某个key对应的kv对数非常大，而其他却非常小时，这个Reducer节点就成了高负载节点，造成了计算资源的分配不均衡。<br>
+        <h3 id="list-sort()方法">list.sort()方法</h3><p>此函数方法对列表内容进行正向排序，排序后的新列表会覆盖原列表,sort排序方法是直接修改原列表list<br>a = [5, 7, 6, 3, 4, 1, 2]<br>a.sort()<br>print a<br>a.reverse()  # 倒序<br>print a</p>
+<h3 id="sorted()方法">sorted()方法</h3><p>即可以保留原列表，又能得到已经排序好的列表<br>a = [5, 7, 6, 3, 4, 1, 2]<br>b = sorted(a)<br>print b<br>c = sorted(a,reverse=1) #倒序<br>print c</p>
+<h3 id="两者区别">两者区别</h3><p>sort()是可变对象(字典、列表)的方法，无参数，无返回值，sort()会改变可变对象，因此无需返回值。<br>sort()方法是可变对象独有的方法或者属性，而作为不可变对象如元组、字符串是不具有这些方法的，如果调用将会返回一个异常。<br>sorted() 是python的内置函数，并不是可变对象(列表、字典)的特有方法，sorted()<br>函数需要一个参数(参数可以是列表、字典、元组、字符串)，无论传递什么参数，都将返回一个以列表为容器的返回值，如果是字典将返回键的列表。<br>函数需要一个参数(参数可以是列表、字典、元组、字符串)，无论传递什么参数，都将返回一个以列表为容器的返回值，如果是字典将返回键的列表。</p>
+<h3 id="lambda函数在元组，字典排序中的应用">lambda函数在元组，字典排序中的应用</h3><p>a= [(‘b’,3),(‘a’,1),(‘c’,2)]<br>b = sorted(a,key = lambda a_tuple:a_tuple[0]) #按第一个元素排序<br>print b<br>c = sorted(a,key = lambda a_tuple:a_tuple[1]) #按第二个元素排序<br>print c<br>d = sorted(a,key=lambda a_tuple:a_tuple[0],reverse=1) #按第一个元素倒序<br>print d<br>
       
     </div>
     <footer>
       
         
           <div class="alignleft">
-            <a href="/2017/06/09/Hadoop-SecondarySort/#more" class="more-link">阅读全文</a>
+            <a href="/2017/04/13/Python-排序/#more" class="more-link">阅读全文</a>
           </div>
         
         
@@ -292,27 +292,27 @@ var _hmt = _hmt || [];
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-04-13T03:10:15.000Z"><a href="/2017/04/13/Python-排序/">Apr 13 2017</a></time>
+        <time datetime="2017-04-07T07:49:20.000Z"><a href="/2017/04/07/Hadoop-SecondarySort/">Apr 7 2017</a></time>
       
       
   
-    <h1 class="title"><a href="/2017/04/13/Python-排序/">Python 排序</a></h1>
+    <h1 class="title"><a href="/2017/04/07/Hadoop-SecondarySort/">Hadoop-SecondarySort</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <h3 id="list-sort()方法">list.sort()方法</h3><p>此函数方法对列表内容进行正向排序，排序后的新列表会覆盖原列表,sort排序方法是直接修改原列表list<br>a = [5, 7, 6, 3, 4, 1, 2]<br>a.sort()<br>print a<br>a.reverse()  # 倒序<br>print a</p>
-<h3 id="sorted()方法">sorted()方法</h3><p>即可以保留原列表，又能得到已经排序好的列表<br>a = [5, 7, 6, 3, 4, 1, 2]<br>b = sorted(a)<br>print b<br>c = sorted(a,reverse=1) #倒序<br>print c</p>
-<h3 id="两者区别">两者区别</h3><p>sort()是可变对象(字典、列表)的方法，无参数，无返回值，sort()会改变可变对象，因此无需返回值。<br>sort()方法是可变对象独有的方法或者属性，而作为不可变对象如元组、字符串是不具有这些方法的，如果调用将会返回一个异常。<br>sorted() 是python的内置函数，并不是可变对象(列表、字典)的特有方法，sorted()<br>函数需要一个参数(参数可以是列表、字典、元组、字符串)，无论传递什么参数，都将返回一个以列表为容器的返回值，如果是字典将返回键的列表。<br>函数需要一个参数(参数可以是列表、字典、元组、字符串)，无论传递什么参数，都将返回一个以列表为容器的返回值，如果是字典将返回键的列表。</p>
-<h3 id="lambda函数在元组，字典排序中的应用">lambda函数在元组，字典排序中的应用</h3><p>a= [(‘b’,3),(‘a’,1),(‘c’,2)]<br>b = sorted(a,key = lambda a_tuple:a_tuple[0]) #按第一个元素排序<br>print b<br>c = sorted(a,key = lambda a_tuple:a_tuple[1]) #按第二个元素排序<br>print c<br>d = sorted(a,key=lambda a_tuple:a_tuple[0],reverse=1) #按第一个元素倒序<br>print d<br>
+        <p>MapReduce框架对处理结果的输出会根据key值进行默认的排序，这个默认排序可以满足一部分需求。为了满足复杂的需求需要Hadoop二次排序Secondary Sort。</p>
+<h3 id="过程">过程</h3><p>在map阶段，使用job.setInputFormatClass定义的InputFormat将输入的数据集分割成小数据块splites，同时InputFormat提供一个RecordReder的实现。<br>他提供的RecordReder会将文本的一行的行号作为key，这一行的文本作为value。这就是自定义Map的输入是<LongWritable, Text>的原因。<br>然后调用自定义Map的map方法，将一个个<LongWritable, Text>对输入给Map的map方法。注意输出应该符合自定义Map中定义的输出<IntPair, IntWritable>。<br>最终是生成一个List<IntPair, IntWritable>。<br>在map阶段的最后，会先调用job.setPartitionerClass对这个List进行分区，每个分区映射到一个reducer。这样Reducer就可以拉取Mapper得到的结果。<br>每个分区内又调用job.setSortComparatorClass设置的key比较函数类排序。可以看到，这本身就是一个二次排序。<br>如果没有通过job.setSortComparatorClass设置key比较函数类，则使用key的实现的compareTo方法。</p>
+<p>在reduce阶段，reducer接收到所有映射到这个reducer的map输出后，也是会调用job.setSortComparatorClass设置的key比较函数类对所有数据对排序。<br>然后开始构造一个key对应的value迭代器。这时就要用到分组，使用job.setGroupingComparatorClass设置的分组函数类。<br>只要这个比较器比较的两个key相同，他们就属于同一个组，它们的value放在一个value迭代器，而这个迭代器的key使用属于同一个组的所有key的第一个key。<br>最后就是进入Reducer的reduce方法，reduce方法的输入是所有的（key和它的value迭代器）。</p>
+<p>Key必须实现WritableComparable接口<br>在MapReduce的过程中，需要对key进行排序，而key也需要在网络流中传输，因此需要实现WritableComparable，这是一个标志接口，实现了Writable, Comparable两个接口。<br>默认情况下，我们使用的是HashPartitioner<br>使用Hash的方式是所有的key的hashcode对reduce的数目取余数，因此虽然能够保证每个key相同的kv对会发送到同一个Reducer任务进行处理，<br>但是当某个key对应的kv对数非常大，而其他却非常小时，这个Reducer节点就成了高负载节点，造成了计算资源的分配不均衡。<br>
       
     </div>
     <footer>
       
         
           <div class="alignleft">
-            <a href="/2017/04/13/Python-排序/#more" class="more-link">阅读全文</a>
+            <a href="/2017/04/07/Hadoop-SecondarySort/#more" class="more-link">阅读全文</a>
           </div>
         
         

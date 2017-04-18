@@ -241,6 +241,54 @@ var _hmt = _hmt || [];
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-12-29T03:01:34.000Z"><a href="/2015/12/29/Hadoop集群IO优化/">Dec 29 2015</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/12/29/Hadoop集群IO优化/">Hadoop集群IO优化</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="保证数据完整性">保证数据完整性</h3><p>校验技术。<br>客户端读取数据节点上的数据时，会验证校验和，将其与数据节点上存储的校验和进行对比。HDFS通过复制完整的副本来产生一个新的，无错的副本来“治愈”哪些出错的数据块。工作方式：如果客户端读取数据块时检测到错误，抛出ChecksumException前报告该坏块以及它试图从名称节点中读取的数据节点。名称节点将这个块标记为损坏的，不会直接复制给客户端或复制该副本到另一个数据节点。它会从其他副本复制一个新的副本。<br>ChecksumFileSystem类实现校验工作</p>
+<h3 id="压缩技术">压缩技术</h3><p>压缩技术好处，减少数据存储空间，提供磁盘和网络的传输速度。<br>在考虑如何压缩那些将由MapReduce处理的数据时，考虑压缩格式是否支持分割是很重要的。<br>编码/解码器类型：<br>DEFLATE   org.apache.hadoop.io.compress.DefaultCodec 不可分割<br>•gzip   org.apache.hadoop.io.compress.GzipCodec   不可分割<br>•bzip2  org.apache.hadoop.io.compress.Bzip2Codec  可分割<br>•LZO  com.hadoop.compression.lzo.LzopCodec   可分割<br>•CompressionCodec 对流进行进行压缩与解压缩<br>•CompressionCodecFactory 方法来推断CompressionCodec<br>MR中使用压缩<br>1、读取压缩文件<br>如果文件是压缩过的，那么在被MapReduce读取时，它们会被解压，根据文件的扩展名来选择应该使用哪一种压缩解码器。如果压缩的文件没有扩展名，则需 要在执行mapreduce任务的时候指定输入格式.</p>
+<p>2、MapReduce的作业输出压缩文件<br>conf.setBoolean(“mapred.output.compress’,true)<br>Conf.setClass(“mapred.output.compression.codec”,GizpCodec.class,CompressionCodec.class);</p>
+<p>3、Map作业输出中间结果的压缩<br>因为Map作业的中间结果会输出到本地，并在网络上传递。所以压缩能获得更好性能，因为传播的数据减少了。<br>conf.setBoolean(“mapred.compress.map.output”, true);<br>conf.setClass(“mapred.map.output.compression.codec”,GzipCodec.class, CompressionCodec.class); </p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-12-29T03:00:43.000Z"><a href="/2015/12/29/Hadoop集群内存优化/">Dec 29 2015</a></time>
       
       
@@ -419,63 +467,6 @@ var _hmt = _hmt || [];
 
 
 
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-11-24T07:56:35.000Z"><a href="/2015/11/24/Redis入门/">Nov 24 2015</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/11/24/Redis入门/">Redis</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2 id="Nosql数据库应用场景">Nosql数据库应用场景</h2><ul>
-<li>少量数据存储，高速读写访问。此类产品通过数据全部in-momery 的方式来保证高速访问，同时提供数据落地的功能，实际这正是Redis最主要的适用场景。</li>
-<li>海量数据存储，分布式系统支持，数据一致性保证，方便的集群节点添加/删除。</li>
-</ul>
-<h2 id="mysql、redis、mogodb_的区别">mysql、redis、mogodb 的区别</h2><p>mongodb是文档型的非关系型数据库，其优势在于查询功能比较强大，能存储海量数据。<br>MongoDb相比于传统的SQL关系型数据库，最大的不同在于它们的模式设计（SchemaDesign）上的差别，正是由于这一层次的差别衍生出其它各方面的不同。<br>如果将关系数据库简单理解为由数据库、表（table）、记录（record）三个层次概念组成，而在构建一个关系型数据库的时候，工作重点和难点都在数据库表的划分与组织上。一般而言，为了平衡提高存取效率与减少数据冗余之间的矛盾，设计的数据库表都会尽量满足所谓的第三范式。相应的，可以认为MongoDb由数据库、集合（collection）、文档对象（Document-oriented、BSON）三个层次组成。MongoDb里的collection可以理解为关系型数据库里的表，虽然二者并不完全对等。当然，不要期望collection会满足所谓的第三范式，因为它们根本就不在同一个概念讨论范围之内。类似于表由多条记录组成，集合也包含多个文档对象，虽然说一般情况下，同一个集合内的文档对象具有相同的格式定义，但这并不是必须的，即MongoDb的数据模式是自由的（schema-free、模式自由、无模式），collection中可以包含具有不同schema的文档记录，支持嵌入子文档。<br>redis 官网测试读写能到10万/s左右。<br>应用场景</p>
-<ul>
-<li>业务系统的关联关系用mysql组织</li>
-<li>缓存数据用memcached、redis存取</li>
-<li>大文本数据放进mongodb存取中</li>
-</ul>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2015/11/24/Redis入门/#more" class="more-link">阅读全文</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -499,7 +490,7 @@ var _hmt = _hmt || [];
   <h3 class="title">分类</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Hadoop/">Hadoop</a><small>7</small></li>
+    <li><a href="/categories/Hadoop/">Hadoop</a><small>8</small></li>
   
     <li><a href="/categories/年度总结/">年度总结</a><small>2</small></li>
   
@@ -517,7 +508,7 @@ var _hmt = _hmt || [];
 <div class="widget tagcloud">
   <h3 class="title">标签云</h3>
   <div class="entry">
-    <a href="/tags/Hadoop/" style="font-size: 17.5px;">Hadoop</a> <a href="/tags/Nosql/" style="font-size: 10px;">Nosql</a> <a href="/tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="/tags/PyCharm/" style="font-size: 10px;">PyCharm</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/二次排序/" style="font-size: 10px;">二次排序</a> <a href="/tags/交通流/" style="font-size: 10px;">交通流</a> <a href="/tags/分布式/" style="font-size: 20px;">分布式</a> <a href="/tags/大数据/" style="font-size: 17.5px;">大数据</a> <a href="/tags/总结/" style="font-size: 12.5px;">总结</a> <a href="/tags/浮动车/" style="font-size: 10px;">浮动车</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a> <a href="/tags/高性能/" style="font-size: 10px;">高性能</a>
+    <a href="/tags/Hadoop/" style="font-size: 18px;">Hadoop</a> <a href="/tags/Nosql/" style="font-size: 10px;">Nosql</a> <a href="/tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="/tags/PyCharm/" style="font-size: 10px;">PyCharm</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/python/" style="font-size: 16px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/二次排序/" style="font-size: 10px;">二次排序</a> <a href="/tags/交通流/" style="font-size: 10px;">交通流</a> <a href="/tags/分布式/" style="font-size: 20px;">分布式</a> <a href="/tags/大数据/" style="font-size: 18px;">大数据</a> <a href="/tags/总结/" style="font-size: 12px;">总结</a> <a href="/tags/浮动车/" style="font-size: 10px;">浮动车</a> <a href="/tags/随笔/" style="font-size: 14px;">随笔</a> <a href="/tags/高性能/" style="font-size: 10px;">高性能</a>
   </div>
 </div>
 

@@ -241,6 +241,54 @@ var _hmt = _hmt || [];
     <header>
       
         <div class="icon"></div>
+        <time datetime="2017-04-18T06:59:48.000Z"><a href="/2017/04/18/Hadoop-Python实现HadoopStreaming分组和二次排序/">Apr 18 2017</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/04/18/Hadoop-Python实现HadoopStreaming分组和二次排序/">Hadoop-Python实现Hadoop Streaming分组和二次排序</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="分组(partition)">分组(partition)</h3><p>Hadoop streaming框架默认情况下会以’/t’作为分隔符，将每行第一个’/t’之前的部分作为key，其余内容作为value，<br>如果没有’/t’分隔符，则整行作为key；这个key/tvalue对又作为该map对应的reduce的输入。<br>-D stream.map.output.field.separator 指定分割key分隔符，默认是/t<br>-D stream.num.map.output.key.fields  选择key的范围<br>-D map.output.key.field.separator     指定key内部的分隔符<br>-D num.key.fields.for.partition         指定对key分出来的前几部分做partition而不是整个key<br>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2017/04/18/Hadoop-Python实现HadoopStreaming分组和二次排序/#more" class="more-link">阅读全文</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2017-04-14T09:22:48.000Z"><a href="/2017/04/14/年度总结-2017/">Apr 14 2017</a></time>
       
       
@@ -435,56 +483,6 @@ var _hmt = _hmt || [];
 
 
 
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-03-30T07:56:34.000Z"><a href="/2017/03/30/Hadoop-Streaming/">Mar 30 2017</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/03/30/Hadoop-Streaming/">Hadoop-Streaming</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>Hadoop Streaming提供了一个便于进行MapReduce编程的工具包，使用它可以基于一些可执行命令、脚本语言或其他编程语言来实现Mapper和 Reducer，从而充分利用Hadoop并行计算框架的优势和能力，来处理大数据</p>
-<h3 id="Hadoop_Streaming原理">Hadoop Streaming原理</h3><p>mapper和reducer会从标准输入中读取用户数据，一行一行处理后发送给标准输出。Streaming工具会创建MapReduce作业，发送给各个tasktracker，同时监控整个作业的执行过程。<br>如果一个文件（可执行或者脚本）作为mapper，mapper初始化时，每一个mapper任务会把该文件作为一个单独进程启动，mapper任务运行时，它把输入切分成行并把每一行提供给可执行文件进程的标准输入。 同时，mapper收集可执行文件进程标准输出的内容，并把收到的每一行内容转化成key/value对，作为mapper的输出。 默认情况下，一行中第一个tab之前的部分作为key，之后的（不包括tab）作为value。如果没有tab，整行作为key值，value值为null。</p>
-<h3 id="Hadoop_Streaming用法">Hadoop Streaming用法</h3><p>options：<br>    (1) -input：输入文件路径<br>    (2) -output：输出文件路径<br>    (3) -mapper：用户自己写的mapper程序，可以是可执行文件或者脚本<br>    (4) -reducer：用户自己写的reducer程序，可以是可执行文件或者脚本<br>    (5) -file：打包文件到提交的作业中，可以是mapper或者reducer要用的输入文件，如配置文件，字典等。<br>    (6) -numReduceTasks:reduce任务数<br>    (7) -inputformat:输入数据格式<br>    (8) -partitioner：用户自定义的partitioner程序<br>    (9) -combiner：用户自定义的combiner程序<br>    -D：作业的一些属性 具体有：<br>        -D mapred.map.tasks：              map task数目<br>        -D mapred.reduce.tasks：reduce     task数目<br>        -D stream.map.output.field.separator   key\value 分割方式<br>        -D stream.num.map.output.key.fields<br>        -D stream.reduce.output.field.separator<br>        -D stream.num.reduce.output.key.fields<br>        -D map.output.key.field.separator=,         对key分割<br>        -D num.key.fields.for.partition=1            分组字段,取第一个字段<br>        -D mapreduce.output.fileoutputformat.compress=true \  输出数据需要压缩<br>        -D mapreduce.output.fileoutputformat.compress.codec=com.hadoop.compression.lzo.LzopCodec \   压缩格式，lzo<br>
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2017/03/30/Hadoop-Streaming/#more" class="more-link">阅读全文</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -506,7 +504,7 @@ var _hmt = _hmt || [];
   <h3 class="title">分类</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Hadoop/">Hadoop</a><small>7</small></li>
+    <li><a href="/categories/Hadoop/">Hadoop</a><small>8</small></li>
   
     <li><a href="/categories/年度总结/">年度总结</a><small>2</small></li>
   
@@ -524,7 +522,7 @@ var _hmt = _hmt || [];
 <div class="widget tagcloud">
   <h3 class="title">标签云</h3>
   <div class="entry">
-    <a href="/tags/Hadoop/" style="font-size: 17.5px;">Hadoop</a> <a href="/tags/Nosql/" style="font-size: 10px;">Nosql</a> <a href="/tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="/tags/PyCharm/" style="font-size: 10px;">PyCharm</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/二次排序/" style="font-size: 10px;">二次排序</a> <a href="/tags/交通流/" style="font-size: 10px;">交通流</a> <a href="/tags/分布式/" style="font-size: 20px;">分布式</a> <a href="/tags/大数据/" style="font-size: 17.5px;">大数据</a> <a href="/tags/总结/" style="font-size: 12.5px;">总结</a> <a href="/tags/浮动车/" style="font-size: 10px;">浮动车</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a> <a href="/tags/高性能/" style="font-size: 10px;">高性能</a>
+    <a href="/tags/Hadoop/" style="font-size: 18px;">Hadoop</a> <a href="/tags/Nosql/" style="font-size: 10px;">Nosql</a> <a href="/tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="/tags/PyCharm/" style="font-size: 10px;">PyCharm</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/python/" style="font-size: 16px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/二次排序/" style="font-size: 10px;">二次排序</a> <a href="/tags/交通流/" style="font-size: 10px;">交通流</a> <a href="/tags/分布式/" style="font-size: 20px;">分布式</a> <a href="/tags/大数据/" style="font-size: 18px;">大数据</a> <a href="/tags/总结/" style="font-size: 12px;">总结</a> <a href="/tags/浮动车/" style="font-size: 10px;">浮动车</a> <a href="/tags/随笔/" style="font-size: 14px;">随笔</a> <a href="/tags/高性能/" style="font-size: 10px;">高性能</a>
   </div>
 </div>
 
